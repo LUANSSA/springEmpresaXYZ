@@ -63,10 +63,10 @@ Siga estas etapas para inicializar o projeto:
     cd <DIRETORIO_DO_PROJETO>
     ```
 
-2. **Construa e Inicie os Contêineres**: Execute o comando a seguir para construir e iniciar os contêineres Docker definidos no `docker-compose.yml`.
+2. **Construa e Inicie os Contêineres**: Execute o comando a seguir para construir e iniciar os contêineres Docker definidos no `compose.yml`.
 
     ```bash
-    docker-compose up --build
+    compose up --build
     ```
 
     Este comando:
@@ -79,7 +79,7 @@ Siga estas etapas para inicializar o projeto:
 
 ## Substituindo as Configurações para um Projeto Real
 
-Para adaptar este projeto para um ambiente real, você deve substituir os valores de configuração no `docker-compose.yml` e no `application.properties`:
+Para adaptar este projeto para um ambiente real, você deve substituir os valores de configuração no `compose.yml` e no `application.properties`:
 
 ### Banco de Dados MySQL:
 
@@ -94,11 +94,11 @@ Para adaptar este projeto para um ambiente real, você deve substituir os valore
 
 ### Segurança:
 
-- Nunca deixe senhas ou dados sensíveis diretamente no arquivo `docker-compose.yml`. Utilize variáveis de ambiente mais seguras ou ferramentas de gerenciamento de segredos.
+- Nunca deixe senhas ou dados sensíveis diretamente no arquivo `compose.yml`. Utilize variáveis de ambiente mais seguras ou ferramentas de gerenciamento de segredos.
 
 ## Observações
 
-- **Versão do Docker Compose**: Atualize a versão no `docker-compose.yml` conforme necessário para compatibilidade com sua versão do Docker Compose.
+- **Versão do Docker Compose**: Atualize a versão no `compose.yml` conforme necessário para compatibilidade com sua versão do Docker Compose.
 - **Volumes Persistentes**: Certifique-se de que o volume `db-data` está configurado corretamente para manter seus dados persistentes.
 
 Se você encontrar problemas ou tiver perguntas, consulte a [documentação do Docker](https://docs.docker.com/) ou abra uma issue no repositório.
