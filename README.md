@@ -51,3 +51,28 @@ services:
 
 volumes:
   db-data:  # Define o volume persistente 'db-data'.
+
+## Inicializando o Projeto
+
+Siga estas etapas para inicializar o projeto:
+
+1. **Clone o Repositório**: Clone o repositório para o seu ambiente local.
+
+    ```bash
+    git clone <URL_DO_REPOSITORIO>
+    cd <DIRETORIO_DO_PROJETO>
+    ```
+
+2. **Construa e Inicie os Contêineres**: Execute o comando a seguir para construir e iniciar os contêineres Docker definidos no `docker-compose.yml`.
+
+    ```bash
+    docker-compose up --build
+    ```
+
+    Este comando:
+    - Constrói a imagem Docker para a aplicação Spring Boot.
+    - Cria e inicializa o contêiner do banco de dados MySQL.
+    - Cria e inicializa o contêiner da aplicação Spring Boot.
+
+3. **Acessar a Aplicação**: Após os contêineres estarem em execução, você pode acessar a aplicação Spring Boot através do seu navegador em [http://localhost:8080](http://localhost:8080).
+
