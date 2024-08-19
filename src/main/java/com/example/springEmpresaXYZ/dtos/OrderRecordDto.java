@@ -5,5 +5,4 @@ import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 
-public record OrderRecordDto(@NotBlank String name) {
 }

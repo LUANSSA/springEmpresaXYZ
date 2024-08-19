@@ -21,7 +21,6 @@ public class OrderModel extends RepresentationModel<OrderModel> implements Seria
     @GeneratedValue(strategy=GenerationType.AUTO)
     private UUID idOrder;
     @NotNull
-    private String name;
 
     public UUID getIdOrder() {
         return idOrder;
@@ -31,12 +30,6 @@ public class OrderModel extends RepresentationModel<OrderModel> implements Seria
         this.idOrder = idOrder;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
 }
