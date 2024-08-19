@@ -16,9 +16,9 @@ O projeto consiste em dois principais serviços:
 - **app**: Uma aplicação Spring Boot.
 - **db**: Um banco de dados MySQL.
 
-### Arquivo `docker-compose.yml`
+### Arquivo `compose.yaml`
 
-O arquivo `docker-compose.yml` configura e executa os contêineres Docker para a aplicação e o banco de dados.
+O arquivo `dcompose.yaml` configura e executa os contêineres Docker para a aplicação e o banco de dados.
 
 ```yaml
 version: '1.0.0'  # Define a versão do formato do arquivo Docker Compose.
