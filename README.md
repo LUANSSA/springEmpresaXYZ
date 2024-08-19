@@ -76,3 +76,31 @@ Siga estas etapas para inicializar o projeto:
 
 3. **Acessar a Aplicação**: Após os contêineres estarem em execução, você pode acessar a aplicação Spring Boot através do seu navegador em [http://localhost:8080](http://localhost:8080).
 
+
+## Substituindo as Configurações para um Projeto Real
+
+Para adaptar este projeto para um ambiente real, você deve substituir os valores de configuração no `docker-compose.yml` e no `application.properties`:
+
+### Banco de Dados MySQL:
+
+- **Substitua `MYSQL_DATABASE`** por um nome de banco de dados real.
+- **Substitua `MYSQL_USER`** e **`MYSQL_PASSWORD`** por um nome de usuário e senha seguros.
+- **Atualize `MYSQL_ROOT_PASSWORD`** com uma senha forte para o usuário root.
+
+### Aplicação Spring Boot:
+
+- **Atualize `SPRING_DATASOURCE_URL`** com o endereço do banco de dados MySQL se estiver usando um servidor externo.
+- **Substitua `SPRING_DATASOURCE_USERNAME`** e **`SPRING_DATASOURCE_PASSWORD`** para corresponder ao usuário e senha do banco de dados MySQL.
+
+### Segurança:
+
+- Nunca deixe senhas ou dados sensíveis diretamente no arquivo `docker-compose.yml`. Utilize variáveis de ambiente mais seguras ou ferramentas de gerenciamento de segredos.
+
+## Observações
+
+- **Versão do Docker Compose**: Atualize a versão no `docker-compose.yml` conforme necessário para compatibilidade com sua versão do Docker Compose.
+- **Volumes Persistentes**: Certifique-se de que o volume `db-data` está configurado corretamente para manter seus dados persistentes.
+
+Se você encontrar problemas ou tiver perguntas, consulte a [documentação do Docker](https://docs.docker.com/) ou abra uma issue no repositório.
+
+
