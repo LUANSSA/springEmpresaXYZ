@@ -51,7 +51,7 @@ services:
 
 volumes:
   db-data:  # Define o volume persistente 'db-data'.
-
+```
 ## Inicializando o Projeto
 
 Siga estas etapas para inicializar o projeto:
