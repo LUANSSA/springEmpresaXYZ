@@ -5,16 +5,15 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 import jakarta.persistence.*;
-
-
 import org.springframework.hateoas.RepresentationModel;
+
 
 
 @Entity
 @Table(name = "tb_001_product")
 public class ProductModel extends RepresentationModel<ProductModel> implements Serializable{
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 2L;
+
 	// Identificador único do produto, do tipo UUID (Universally Unique Identifier).
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -24,7 +23,11 @@ public class ProductModel extends RepresentationModel<ProductModel> implements S
 	// Armazena o valor do produto, utilizando BigDecimal para lidar com valores monetários de forma precisa.
 	private BigDecimal value;
 	// Armazena a descrição do produto.
+	@Lob
+	@Column(columnDefinition = "TEXT", length = 1000)
 	private String description;
+	// Armazena a disponibilidade do produto
+	private Boolean availability;
 
 	// Retorna o identificador único do produto.
 	public UUID getIdProduct() { return idProduct; }
@@ -49,4 +52,10 @@ public class ProductModel extends RepresentationModel<ProductModel> implements S
 
 	// Define a descrição do produto.
 	public void setDescription(String description) { this.description = description; }
+
+	// Retorna a disponibilidade do produto
+	public Boolean getAvailability() { return availability; }
+
+	// Define a disponibilidade do produto
+	public void setAvailability(Boolean availability) { this.availability = availability; }
 }
