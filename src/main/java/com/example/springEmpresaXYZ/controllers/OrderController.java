@@ -18,14 +18,15 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
+@RequestMapping("/order")
 public class OrderController {
 
     @Autowired
-    OrderRepository productRepository;
+    OrderRepository orderReposutory;
 
-    @GetMapping("/products")
+    @GetMapping()
     public ResponseEntity<List<OrderModel>> getAllOrders(){
-        List<OrderModel> productsList = productRepository.findAll();
+        List<OrderModel> productsList = orderReposutory.findAll();
         if(!productsList.isEmpty()) {
             for(OrderModel product : productsList) {
                 UUID id = product.getIdOrder();
@@ -35,9 +36,9 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.OK).body(productsList);
     }
 
-    @GetMapping("/products/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Object> getOneOrder(@PathVariable(value="id") UUID id){
-        Optional<OrderModel> productO = productRepository.findById(id);
+        Optional<OrderModel> productO = orderReposutory.findById(id);
         if(productO.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Order not found.");
         }
@@ -45,33 +46,33 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.OK).body(productO.get());
     }
 
-    @PostMapping("/products")
+    @PostMapping()
     public ResponseEntity<OrderModel> saveOrder(@RequestBody @Valid OrderRecordDto productRecordDto) {
-        var productModel = new OrderModel();
-        BeanUtils.copyProperties(productRecordDto, productModel);
-        return ResponseEntity.status(HttpStatus.CREATED).body(productRepository.save(productModel));
+        var orderModel = new OrderModel();
+        BeanUtils.copyProperties(productRecordDto, orderModel);
+        return ResponseEntity.status(HttpStatus.CREATED).body(orderReposutory.save(orderModel));
     }
 
-    @DeleteMapping("/products/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteOrder(@PathVariable(value="id") UUID id) {
-        Optional<OrderModel> productO = productRepository.findById(id);
-        if(productO.isEmpty()) {
+        Optional<OrderModel> order0 = orderReposutory.findById(id);
+        if(order0.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Order not found.");
         }
-        productRepository.delete(productO.get());
+        orderReposutory.delete(order0.get());
         return ResponseEntity.status(HttpStatus.OK).body("Order deleted successfully.");
     }
 
-    @PutMapping("/products/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Object> updateOrder(@PathVariable(value="id") UUID id,
-                                                @RequestBody @Valid OrderRecordDto productRecordDto) {
-        Optional<OrderModel> productO = productRepository.findById(id);
-        if(productO.isEmpty()) {
+                                                @RequestBody @Valid OrderRecordDto orderRecordDto) {
+        Optional<OrderModel> orderO = orderReposutory.findById(id);
+        if(orderO.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Order not found.");
         }
-        var productModel = productO.get();
-        BeanUtils.copyProperties(productRecordDto, productModel);
-        return ResponseEntity.status(HttpStatus.OK).body(productRepository.save(productModel));
+        var orderModel = orderO.get();
+        BeanUtils.copyProperties(orderRecordDto, orderModel);
+        return ResponseEntity.status(HttpStatus.OK).body(orderReposutory.save(orderModel));
     }
 
 }
