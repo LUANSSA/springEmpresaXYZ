@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Portfólio</title>
-</head>
-<body>
-    <h1>Bem Vindo!</h1>
 
-    <!-- Menu de navegação -->
-    <div th:replace="fragments/menu :: menuFrangment"></div>
+<head th:replace="fragments/head.html :: headFragment"><head>
+
+<body>
+    <!-- header -->
+    <header th:replace="fragments/menu :: menuFrangment"></header>
 
     <h2 th:text="${mensagem}"></h2>
 
