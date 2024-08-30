@@ -10,6 +10,7 @@ public class PaginaSobreController {
     @GetMapping("/sobre")
     public String sobre(Model model) {
 
+        model.addAttribute("titulo", "Sobre");
         return "sobre";
     }
 }

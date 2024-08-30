@@ -10,6 +10,7 @@ public class PaginaContatoController {
     @GetMapping("/contato")
     public String contato(Model model) {
 
+        model.addAttribute("titulo", "Contato");
         return "contato";
     }
 }

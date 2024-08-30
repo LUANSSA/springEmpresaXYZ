@@ -21,6 +21,7 @@ public class PaginaHomeController {
     public String home(Model model) {
 
         List<ProductModel> products = productController.getAllProducts().getBody();
+        model.addAttribute("titulo", "Home");
         model.addAttribute("products", products);
         model.addAttribute("mensagem", "Olá Mundo");
         return "index";

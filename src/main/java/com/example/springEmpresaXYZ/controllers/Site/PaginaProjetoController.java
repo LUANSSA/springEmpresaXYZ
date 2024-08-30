@@ -10,6 +10,7 @@ public class PaginaProjetoController {
     @GetMapping("/projetos")
     public String projetos(Model model) {
 
+        model.addAttribute("titulo", "Projetos");
         return "projetos";
     }
 }
